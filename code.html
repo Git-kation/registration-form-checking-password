@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset='UTF-8'>
+	<title>Форма регистрации</title>
+</head>
+<body>
+	<h2>Регистрация</h2>
+	<p>Придумайте логин</p>
+	<form id="reg">
+		<input type="text" id="login" placeholder="Иван Иванов" required>
+	<p>Придумайте пароль</p>
+		<input type="password" id="password1" placeholder="Пароль" required>
+	<p>Повторите пароль</p>
+		<input type="password" id="password2" placeholder="Пароль" required>
+		<button type="submit">Готово</button>
+	</form>
+
+	<script>
+		var form = document.getElementById('reg');
+		form.addEventListener('submit', function(e) {
+		var pass1 = document.getElementById('password1').value;
+		var pass2 = document.getElementById('password2').value;
+		if (pass1.length<8){
+		e.preventDefault();
+		alert('Пароль должен состоять как минимум из 8 символов');
+		return;
+		}
+		if (pass1!==pass2){
+		e.preventDefault();
+		alert('Пароли не совпадают');
+		return
+		}
+		alert('Всё прошло успешно!');
+		});
+	</script>
+</body>
+</html>
